@@ -12,8 +12,6 @@ declare(strict_types=1);
 
 namespace Hyperf\Di\LazyLoader;
 
-use Hyperf\CodeParser\PhpParser;
-
 class ConfigProvider
 {
     public function __invoke(): array
@@ -26,9 +24,8 @@ class ConfigProvider
                     ],
                 ],
                 'class_map' => [
-                    //                    LazyLoader::class =>  dirname(__DIR__).'/class_map/LazyLoader.php',
-                    PhpParser::class => dirname(__DIR__) . '/class_map/PhpParser.php',
-                    //                    PublicMethodVisitor::class =>  dirname(__DIR__).'/class_map/PublicMethodVisitor.php',
+                    LazyLoader::class => __DIR__ . '/LazyLoader.php',
+                    PublicMethodVisitor::class => __DIR__ . '/PublicMethodVisitor.php',
                 ],
             ],
             'publish' => [
