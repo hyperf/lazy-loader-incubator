@@ -1,18 +1,18 @@
-中文 | [English](./README-en.md)
+[中文](./README.md) | English
 
-# Hyperf di 延迟加载
+# Hyperf di delayed loading
 
 ```
 composer require hyperf/lazy-loader-incubator
 ```
 
-## 发布配置文件
+## Publishing Configuration Files
 
 ```shell
 php bin/hyperf vendor:publish hyperf/lazy-loader-incubator
 ```
 
-## 使用
+## make use of
 
 ```php
 // app/Service/UserInterface
@@ -45,7 +45,7 @@ class IndexController {
 }
 ```
 
-生成延迟代理类为
+Generate the deferred proxy class as
 
 ```php
 // runtime/container/proxy/Hyperf_Lazy_UserService_xxx.php
