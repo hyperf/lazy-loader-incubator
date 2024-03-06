@@ -1,0 +1,18 @@
+<?php
+
+namespace HyperfLazy\Test;
+
+/**
+ * Be careful: This is a lazy proxy, not the real HyperfTest\Stub\BarService from container.
+ *
+ * {@inheritdoc}
+ */
+class Test extends \HyperfTest\Stub\BarService
+{
+    use \Hyperf\Di\LazyLoader\LazyProxyTrait;
+    const PROXY_TARGET = 'HyperfTest\\Stub\\BarService';
+    public function bar() : string
+    {
+        return $this->__call(__FUNCTION__, func_get_args());
+    }
+}

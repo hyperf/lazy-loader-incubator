@@ -9,6 +9,10 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-require_once dirname(__FILE__, 2) . '/vendor/autoload.php';
 
-defined('BASE_PATH') || define('BASE_PATH', dirname(__DIR__));
+namespace HyperfTest\Stub;
+
+interface FooServiceInterface extends BaseServiceInterface
+{
+    public function foo(): string;
+}

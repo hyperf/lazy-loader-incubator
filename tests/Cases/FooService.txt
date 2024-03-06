@@ -1,0 +1,22 @@
+<?php
+
+namespace HyperfLazy\Foo;
+
+/**
+ * Be careful: This is a lazy proxy, not the real HyperfTest\Stub\FooService from container.
+ *
+ * {@inheritdoc}
+ */
+class Foo extends \HyperfTest\Stub\FooService
+{
+    use \Hyperf\Di\LazyLoader\LazyProxyTrait;
+    const PROXY_TARGET = 'HyperfTest\\Stub\\FooService';
+    public function getLogger() : \Psr\Log\LoggerInterface
+    {
+        return $this->__call(__FUNCTION__, func_get_args());
+    }
+    public function foo() : string
+    {
+        return $this->__call(__FUNCTION__, func_get_args());
+    }
+}

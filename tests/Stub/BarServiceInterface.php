@@ -10,16 +10,9 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 
-namespace HyperfTest\Cases;
+namespace HyperfTest\Stub;
 
-/**
- * @internal
- * @coversNothing
- */
-class ExampleTest extends AbstractTestCase
+interface BarServiceInterface
 {
-    public function testExample()
-    {
-        $this->assertTrue(true);
-    }
+    public function bar(): string;
 }

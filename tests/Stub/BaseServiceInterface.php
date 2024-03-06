@@ -9,6 +9,12 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-require_once dirname(__FILE__, 2) . '/vendor/autoload.php';
 
-defined('BASE_PATH') || define('BASE_PATH', dirname(__DIR__));
+namespace HyperfTest\Stub;
+
+use Psr\Log\LoggerInterface;
+
+interface BaseServiceInterface
+{
+    public function getLogger(): LoggerInterface;
+}

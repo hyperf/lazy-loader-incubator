@@ -10,13 +10,12 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 
-namespace HyperfTest\Cases;
+namespace HyperfTest\Stub;
 
-use PHPUnit\Framework\TestCase;
-
-/**
- * Class AbstractTestCase.
- */
-abstract class AbstractTestCase extends TestCase
+class BarService implements BarServiceInterface
 {
+    public function bar(): string
+    {
+        return 'bar';
+    }
 }
