@@ -15,6 +15,7 @@ namespace HyperfTest\Cases;
 use Hyperf\Di\LazyLoader\LazyLoader;
 use HyperfTest\Stub\BarService;
 use HyperfTest\Stub\FooService;
+use HyperfTest\Stub\PersonService;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -23,19 +24,19 @@ use PHPUnit\Framework\TestCase;
  */
 class LoaderLazyTest extends TestCase
 {
-    public function testGeneratorLazyProxyInterface()
-    {
-        $lazyLoader = LazyLoader::bootstrap(BASE_PATH);
-        $proxyCode = file_get_contents(__DIR__ . '/FooService.txt');
-        $code = $lazyLoader->generatorLazyProxy('HyperfLazy\\Foo\\', FooService::class);
-        self::assertEquals($proxyCode, $code);
-    }
 
-    public function testGeneratorLazyProxyClass()
+    public function testGeneratorLazyProxy()
     {
+
         $lazyLoader = LazyLoader::bootstrap(BASE_PATH);
         $proxyCode = file_get_contents(__DIR__ . '/BarService.txt');
         $code = $lazyLoader->generatorLazyProxy('HyperfLazy\\Test\\', BarService::class);
+        self::assertEquals($proxyCode, $code);
+        $proxyCode = file_get_contents(__DIR__ . '/FooService.txt');
+        $code = $lazyLoader->generatorLazyProxy('HyperfLazy\\Foo\\', FooService::class);
+        self::assertEquals($proxyCode, $code);
+        $proxyCode = file_get_contents(__DIR__.'/PersonService.txt');
+        $code = $lazyLoader->generatorLazyProxy('HyperfLazy\\Test',PersonService::class);
         self::assertEquals($proxyCode, $code);
     }
 }

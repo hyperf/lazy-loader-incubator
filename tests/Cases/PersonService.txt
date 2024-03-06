@@ -1,0 +1,14 @@
+<?php
+
+namespace HyperfLazy;
+
+/**
+ * Be careful: This is a lazy proxy, not the real HyperfTest\Stub\PersonService from container.
+ *
+ * {@inheritdoc}
+ */
+class Test extends \HyperfTest\Stub\PersonService
+{
+    use \Hyperf\Di\LazyLoader\LazyProxyTrait;
+    const PROXY_TARGET = 'HyperfTest\\Stub\\PersonService';
+}
