@@ -56,7 +56,7 @@ class LazyLoader
         if (file_exists($path)) {
             $config = include $path;
         }
-        return static::$instance = new self($config,$proxyFileDirPath);
+        return static::$instance = new self($config, $proxyFileDirPath);
     }
 
     /**
